@@ -25,8 +25,9 @@ public class BindViewProcessor extends AbstractProcessor {
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
 
-        //得到很多工具类
+        //日志打印工具
         messager = processingEnv.getMessager();
+        //element工具
         mElementUtils = processingEnv.getElementUtils();
     }
 

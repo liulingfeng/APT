@@ -5,7 +5,6 @@ import com.mistong.apt_annotation.BindView;
 import com.squareup.javapoet.JavaFile;
 
 import javax.annotation.processing.*;
-import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
@@ -15,6 +14,7 @@ import java.io.IOException;
 import java.util.*;
 
 @AutoService(Processor.class)
+@SupportedAnnotationTypes("com.mistong.apt_annotation.BindView")
 public class BindViewProcessor extends AbstractProcessor {
 
     private Messager messager;
@@ -31,19 +31,19 @@ public class BindViewProcessor extends AbstractProcessor {
         mElementUtils = processingEnv.getElementUtils();
     }
 
-    @Override
-    public Set<String> getSupportedAnnotationTypes() {
-        //指定注解处理器给哪个注解
-        HashSet<String> supportTypes = new LinkedHashSet<>();
-        supportTypes.add(BindView.class.getCanonicalName());
-        return supportTypes;
-    }
-
-    @Override
-    public SourceVersion getSupportedSourceVersion() {
-        //指定使用的java版本
-        return SourceVersion.latestSupported();
-    }
+//    @Override
+//    public Set<String> getSupportedAnnotationTypes() {
+//        //指定注解处理器给哪个注解
+//        HashSet<String> supportTypes = new LinkedHashSet<>();
+//        supportTypes.add(BindView.class.getCanonicalName());
+//        return supportTypes;
+//    }
+//
+//    @Override
+//    public SourceVersion getSupportedSourceVersion() {
+//        //指定使用的java版本
+//        return SourceVersion.latestSupported();
+//    }
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {

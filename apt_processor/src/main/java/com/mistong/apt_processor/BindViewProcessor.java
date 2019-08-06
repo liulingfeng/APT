@@ -5,6 +5,7 @@ import com.mistong.apt_annotation.BindView;
 import com.squareup.javapoet.JavaFile;
 
 import javax.annotation.processing.*;
+import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
@@ -39,11 +40,11 @@ public class BindViewProcessor extends AbstractProcessor {
 //        return supportTypes;
 //    }
 //
-//    @Override
-//    public SourceVersion getSupportedSourceVersion() {
-//        //指定使用的java版本
-//        return SourceVersion.latestSupported();
-//    }
+    @Override
+    public SourceVersion getSupportedSourceVersion() {
+        //指定使用的java版本
+        return SourceVersion.latestSupported();
+    }
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
